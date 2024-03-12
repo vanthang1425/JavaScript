@@ -95,9 +95,106 @@ for(var i=0; i<3; i++){
     console.log("<br/>");
 }
 
-// Bài 5: Hàm ktra Regex
 
+ //Bài 5: Kiểm tra regex email password
+var email = 'thang@gmail.com';
+var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+if(emailRegex.test(email)) {
+  console.log('Email hợp lệ');
+  } 
+else{
+    console.log('Email không hợp lệ')
+  }
+
+var pass = '@$@!$!'
+var passwordRegex = /^[A-Za-z]\w{7,14}$/;
+if(passwordRegex.test(pass)) {
+  console.log('Password hợp lệ');
+  } 
+else{
+    console.log('Password không hợp lệ')
+  }
+
+//Bài 6: Đổi email, pass thành function
+function Email_hople(email) {
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  return emailRegex.test(email);
+ }
  
+ function Password_hople(pass) {
+  const passwordRegex = /^[A-Za-z]\w{7,14}$/;
+  return passwordRegex.test(pass);
+ }
+ 
+var email = 'thang@gmail.com';
+var pass = '123123123';
+
+if(Email_hople(email)) {
+  console.log('Email hợp lệ');
+  } 
+  else{
+    console.log('Email không hợp lệ')
+  }
+
+if(Password_hople(pass)) {
+  console.log('Password hợp lệ');
+  } 
+  else{
+    console.log('Password không hợp lệ')
+  }
+
+//Bài 7
+function checkInput() {
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+
+  if (!Email_hople(email)) {
+      alert('Email không hợp lệ')
+  }
+
+  if (!Password_hople(password)) {
+    
+    alert('Password không hợp lệ')
+ 
+  }
+}
+
+//Bài 8: Object
+var user = {
+  "email" : "thang@gmail.com",
+  "password" : "1",
+  
+  "name": "thang",
+  "Properties": {
+    "age": 20,
+    "height": "175cm",
+    "relationship": "single"
+  }
+}
+
+function checkInput() {
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+
+  if (!Email_hople(email)) {
+      alert('Email không hợp lệ')
+  }
+
+  if (!Password_hople(password)) {
+    
+    alert('Password không hợp lệ')
+  }
+
+  if(email === user.email && password === user.password){
+    console.log(user.name);
+      alert("Tên người dùng: " + user.name );
+      console.log(o["name"]);
+      console.log(o.Properties.relationship);
+      
+    }else{
+      alert("Đăng nhập thất bại");
+    }
+}
 
 
 
